@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using B2BReports.Model;
 
 namespace B2BReports
 {
@@ -21,6 +22,7 @@ namespace B2BReports
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.Configure<MySettingsModel>(Configuration.GetSection("MySettings"));
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
